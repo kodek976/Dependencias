@@ -12,12 +12,6 @@ public class Principal {
             System.err.println("Error: No se puede dividir entre cero");
             System.err.println("Mensaje técnico:"+e.getMessage());
         }
-        
-    
-        
-        
-        
-        
         System.out.println("El programa continua");
     }
 }

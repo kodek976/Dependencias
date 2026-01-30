@@ -8,6 +8,6 @@ package ExcepcionPersonalizada;
  * @url youtube.com
  * @date30 ene 2026
  */
-public class Excepcion {
+public class Principal {
 
 }
