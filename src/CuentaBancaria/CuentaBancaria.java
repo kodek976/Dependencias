@@ -2,38 +2,60 @@
 package CuentaBancaria;
 
 public class CuentaBancaria {
-    //Atributos Privados
-    private String titula;
-    private Double saldo;
-    //constructores
 
-    public CuentaBancaria() {
+
+    // atributos
+    private String titular;
+    private double saldo;
+
+    // constructores, si no ponemos nada es public
+    CuentaBancaria() {
+        titular = "Sin nombre";
+        saldo = 0.0;
     }
 
-    public CuentaBancaria(String titula, Double saldo) {
-        this.titula = titula;
+    public CuentaBancaria(String titular, double saldo) {
+        this.titular = titular;
         this.saldo = saldo;
     }
 
-    public String getTitula() {
-        return titula;
+    // getters y setters
+    public String getTitular() {
+        return titular;
     }
 
-    public void setTitula(String titula) {
-        this.titula = titula;
+    public void setTitular(String titular) {
+        this.titular = titular;
     }
-    
-    public void setSaldo(Double saldo) {
-        this.saldo = saldo;
+
+    public double getSaldo() {
+        return saldo;
     }
-    //Métodos propios
-    public void depositar(double cantidad){
-        
+
+    // métodos propios
+    public void depositar(double cantidad) {
+        if (cantidad >= 0) { 
+            saldo += cantidad;
+        }
     }
-    public boolean retirar(double cantidad){
-        return true;
+
+    public boolean retirar(double cantidad) {
+        double operacion = saldo - cantidad;
+        if (operacion >=0 ){
+            saldo -= cantidad;
+            return true;
+        }else // saldo negativo
+            return false;
     }
-    public String mostrainfo(){
-        return"";
+
+    // es el método toString()
+    @Override
+    public String toString() {
+        return "CuentaBancaria{" + "titular=" + titular + ", saldo=" + saldo + "€ }";
+    }
+
+    public String mostrarInfo() {
+        return "CuentaBancaria{" + "titular=" + titular + ", saldo=" + saldo + "€ }";
     }
 }
+
