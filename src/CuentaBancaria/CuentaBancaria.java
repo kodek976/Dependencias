@@ -44,11 +44,11 @@ public class CuentaBancaria {
         if (operacion >=0 ){
             saldo -= cantidad;
             return true;
-        }else // saldo negativo
+            }else // saldo negativo
             return false;
     }
 
-    // es el método toString()
+    // es el método toString(), tiene la misma función que mostrarInfo()
     @Override
     public String toString() {
         return "CuentaBancaria{" + "titular=" + titular + ", saldo=" + saldo + "€ }";
