@@ -11,6 +11,12 @@ public class Deportista extends Persona{
     public Deportista(String deporte) {
         this.deporte = deporte;
     }
+   //Solo se utiliza en los constructores y es para hacer referencia a los constructores de la superclase. Cada uno construye con sus atributos
+    public Deportista(String deporte, String nombre) {
+        super(nombre);//aquí
+        this.deporte = deporte;
+    }
+      
     
     //Getters y Setters
 
