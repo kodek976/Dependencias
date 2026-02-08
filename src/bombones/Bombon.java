@@ -4,7 +4,8 @@ package bombones;
 public class Bombon {
     //Atributos
     private String color;
-    private Chocolate Chocolate;
+    private Chocolate chocolate;//Utilizamos esto porque es la agregación es lo mismo que decir que un bombon tiene chocolate. 
+                                //Si utilizaramos herencia diriamos que un bombon es lo mismo que un chocolate 
     
     //Constructor
     public Bombon() {
@@ -15,12 +16,12 @@ public class Bombon {
     //Constructor nuevo
     public Bombon(String color, Chocolate Chocolate) {
         this.color = color;
-        this.Chocolate = Chocolate;
+        this.chocolate = Chocolate;
     }
-    //Constructor que va a encapsular la clase de chocolate
+    //Constructor que va a encapsular la clase de chocolate(Para no tener que utilizar la clase chocolate)
     public Bombon(String color, String sabor, double precio){
         this.color = color;
-        this.Chocolate = new Chocolate(sabor, precio); 
+        this.chocolate = new Chocolate(sabor, precio); 
     }
     //Getter y Setter
     public String getColor() {
@@ -29,28 +30,28 @@ public class Bombon {
     //Getter y Setter nuevo
 
     public Chocolate getChocolate() {
-        return Chocolate;
+        return chocolate;
     }
 
     public void setChocolate(Chocolate Chocolate) {
-        this.Chocolate = Chocolate;
+        this.chocolate = Chocolate;
     }
     
     public void setColor(String color) {
         this.color = color;
     }
-    //Getters y Setters con encapsulacion
-        // Getters y setters con encapsulación
+ 
+    // Getters y setters con encapsulación
     public String getSabor(){
-        return Chocolate.getSabor();
+        return chocolate.getSabor();
     }
     
     public double getPrecio(){
-        return Chocolate.getPrecio();
+        return chocolate.getPrecio();
     }
     
     public void setPrecio(double precio){
-        this.Chocolate.setPrecio(precio);
+        this.chocolate.setPrecio(precio);
     }
     
     
