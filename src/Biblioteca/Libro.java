@@ -43,9 +43,9 @@ public class Libro {
     }
         
     //Métodos
-        public String tostring(){
-            return "´{Título:"+título+" ,autor:"+autor+" ,año"+year+'}';
-        }
+        public String toString(){  // ? Cambio de tostring a toString
+    return "{Título:" + título + ", autor:" + autor + ", año:" + year + '}';  // ? Sin comilla al inicio
+}
         
         public void mostrarAutor(){
             System.out.println("Autor:"+autor);

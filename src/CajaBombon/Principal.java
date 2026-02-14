@@ -11,7 +11,7 @@ public class Principal {
         Caja c1 = new Caja ("Cartón");
         System.out.println(c1.getMaterial());
         
-        // Trabajar con la clase... mal
+        // Trabajar con la clase... de la forma noob
         // Creamos dos bombones
         Bombon b1 = new Bombon("Rojo","Chocolate con leche",1.99);
         Bombon b2 = new Bombon("Verde", "Pistacho", 4.99);
