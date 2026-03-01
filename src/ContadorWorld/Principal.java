@@ -3,46 +3,37 @@
 package ContadorWorld;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+
 
 public class Principal {
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-        System.out.println("CONTADOR DEL WORLD");
-        try(BufferedReader contenido = new BufferedReader( new FileReader("Documento.txt"));){
-        //Contar palabras, letras, caracteres con espacio y sin espacio, parrafos
-        String linea = null;
-        int acumuladorCon=0;
-        int contaParrafos = 0;//Contar párrafos
-        int acumuladorPal=0;
-        int acumuladorSin=0;
-        
-        while ((linea=contenido.readLine())!=null) {
-            contaParrafos++;
+    public static void main(String[] args) {
+        try (BufferedReader Br = new BufferedReader(new FileReader("contador.txt"))){//Permitimos leerlo
+            int palabras = 0;
+            int parrafos = 0;
+            int sinEspacio = 0;
+            int ConEspacio = 0;
             
-        //Guardamos y acumulamos los caráteres por cada párrafo
-        int caracterescon= linea.length();
-        acumuladorCon+=caracterescon;
-        //Guardamos y acumulamos las palabras, tamaño del array
-        String[] parrafo = linea.split(" ");
-        int contadorPal=parrafo.length;
-        acumuladorPal += contadorPal;
-        //Ahora contamos las palabras sin espacio desde el parrafo[]
-        int acumuladorLetras=0;
-            for (String s : parrafo) {
-                acumuladorLetras += s.length();
+            String linea;
+            while ((linea = Br.readLine())!= null) {//Leemos línea por línea
+                if (linea.length() !=0) {//Si está vacía sumamos un párrafo
+                    parrafos++;
+                    
+                    ConEspacio += linea.length();
+                    
+                    String[] palabrasLinea = linea.split(" ");//divide el texto por los espacios y devuelve un array
+                    palabras += palabrasLinea.length;
+                    
+                    for (String s : palabrasLinea) {//recorre el array  
+                        sinEspacio+= s.length();
+                    }
+                }
             }
-            acumuladorSin+=acumuladorLetras;
-        }
-           System.out.println("Los párrafos son: "+contaParrafos);
-            System.out.println("Los Carácteres con espacios son "+acumuladorCon);
-            System.out.println("Los carácteres sin espacios son "+acumuladorSin);
-            
-        
-        //Contar líneas si te digo el tamaño
-        } catch (IOException e) {
-             System.err.println("Error en la lectura "+e.getMessage());   
+         System.out.println("Palabras: "+palabras);
+        System.out.println("Párrafos: "+parrafos);
+        System.out.println("Carácteres sin espacio"+sinEspacio);
+        System.out.println("Carácteres con espacio: "+ConEspacio);
+        } catch (Exception e) {
         }
         System.out.println("FIN DEL PROGRAMA");
     }
